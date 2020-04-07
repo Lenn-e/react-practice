@@ -1,0 +1,38 @@
+.CreateBookModal {
+  position: fixed;
+  z-index: 500;
+  background-color: white;
+  width: 30%;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px black;
+  padding: 40px;
+  left: 35%;
+  top: 30%;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  background-color: lightcoral;
+}
+
+.Backdrop {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.CreateBookModal.hidden {
+  transform: translateY(-100vh);
+  opacity: 0;
+}
+
+.Backdrop.hidden {
+  display: none;
+}
