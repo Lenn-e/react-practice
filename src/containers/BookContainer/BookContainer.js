@@ -11,12 +11,29 @@ class BookContainer extends Component {
       2: {title: "Supreme Book", author: "Supreme"},
       3: {title: "Test Book", author: "Tester"}
     },
-    createBookModalOpen: true,
+    createBookModalOpen: false,
   }
 
   createBookHandler = (e) => {
     e.preventDefault();
-    console.log('oyou')
+    const newBook = {
+      title: e.target.title.value,
+      author: e.target.author.value
+    };
+    const ID = new Date() + e.target.author.value + e.target.title.value;
+    this.setState(prevState => {
+      const booksCopy = {...prevState.books};
+      booksCopy[ID] = newBook;
+
+      return {
+        books: booksCopy
+      }
+    });
+    this.closeCreateBookModal();
+  }
+
+  openCreateBookModal = () => {
+    this.setState({ createBookModalOpen: true });
   }
 
   closeCreateBookModal = () => {
@@ -26,6 +43,9 @@ class BookContainer extends Component {
   render() {
     return (
       <div className={classes.BookContainer}>
+        <div 
+          className={classes.CreateBookButton}
+          onClick={this.openCreateBookModal}>Add Book</div>
         <BookList books={this.state.books} />
         <CreateBookModal 
           createBook={this.createBookHandler}
