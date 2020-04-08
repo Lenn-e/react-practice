@@ -8,7 +8,7 @@ class BookContainer extends Component {
   state = {
     books: {
       1: {title: "Dune", author: "Frank Herbert", pages: "634", isRead: false},
-      2: {title: "Supreme Book", author: "Supreme", pages: "432", isRead: false},
+      2: {title: "Sample Book", author: "Sample Guy", pages: "432", isRead: false},
       3: {title: "Test Book", author: "Tester", pages: "564", isRead: false}
     },
     createBookModalOpen: false,

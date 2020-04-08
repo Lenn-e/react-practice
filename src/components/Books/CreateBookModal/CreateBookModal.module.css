@@ -1,12 +1,10 @@
 .CreateBookModal {
   position: fixed;
-  
   background-color: white;
-  width: 30%;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 1px black;
+  width: 25%;
+  border-radius: 5px;
   padding: 40px;
-  left: 35%;
+  left: 37.5%;
   top: 30%;
   box-sizing: border-box;
   transition: all 0.2s;
@@ -26,6 +24,15 @@
 form {
   display: flex;
   flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+}
+
+button {
+  margin: 20px auto 0;
+  width: 80px;
 }
 
 .CreateBookModal.hidden {
