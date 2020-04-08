@@ -27,4 +27,4 @@ const BookList = (props) => {
   );
 };
 
-export default BookList;
+export default React.memo(BookList);

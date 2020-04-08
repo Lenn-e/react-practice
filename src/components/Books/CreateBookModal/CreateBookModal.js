@@ -19,11 +19,11 @@ const CreateBookModal = (props) => {
         <h2>Add new book</h2>
         <form onSubmit={props.createBook}>
           <label>Title</label>
-          <input type="text" name="title" maxlength="30"/>
+          <input type="text" name="title" maxLength="30"/>
           <label>Author</label>
-          <input type="text" name="author" maxlength="30"/>
+          <input type="text" name="author" maxLength="30"/>
           <label>Number of pages</label>
-          <input type="text" name="pages" pattern="\d*" maxlength="4"/>
+          <input type="text" name="pages" pattern="\d*" maxLength="4"/>
           <button>Submit</button>
         </form>
       </div>
@@ -31,4 +31,4 @@ const CreateBookModal = (props) => {
   );
 };
 
-export default CreateBookModal;
+export default React.memo(CreateBookModal);

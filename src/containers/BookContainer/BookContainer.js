@@ -3,14 +3,12 @@ import React, { Component } from 'react';
 import classes from './BookContainer.module.css';
 import BookList from '../../components/Books/BookList/BookList';
 import CreateBookModal from '../../components/Books/CreateBookModal/CreateBookModal';
+import {bookStorage, addBookToLocalStorage, removeBookFromLocalStorage} from '../../Utility/BookStorage/BookStorage';
+
 
 class BookContainer extends Component {
   state = {
-    books: {
-      1: {title: "Dune", author: "Frank Herbert", pages: "634", isRead: false},
-      2: {title: "Sample Book", author: "Sample Guy", pages: "432", isRead: false},
-      3: {title: "Test Book", author: "Tester", pages: "564", isRead: false}
-    },
+    books: bookStorage,
     createBookModalOpen: false,
   }
 
@@ -32,6 +30,7 @@ class BookContainer extends Component {
       }
     });
     this.closeCreateBookModal();
+    addBookToLocalStorage(newBook, ID);
   }
 
   openCreateBookModal = () => {
@@ -60,6 +59,8 @@ class BookContainer extends Component {
     this.setState({
       books: booksClone
     });
+
+    removeBookFromLocalStorage(bookID);
   }
 
   render() {
