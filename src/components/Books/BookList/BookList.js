@@ -5,13 +5,18 @@ import Book from './Book/Book';
 
 const BookList = (props) => {
   let books = Object.keys(props.books)
-    .map((book, idx) => {
-      book = props.books[book];
+    .map((bookID, idx) => {
+      const book = props.books[bookID];
       return (
         <Book
-          key={idx+book.title}
+          key={bookID}
+          id={bookID}
           title={book.title} 
-          author={book.author} />
+          author={book.author}
+          pages={book.pages}
+          isRead={book.isRead}
+          toggleRead={props.toggleRead}
+          deleteBook={props.deleteBook} />
       );
     });
 

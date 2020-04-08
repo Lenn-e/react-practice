@@ -3,16 +3,16 @@
 }
 
 .CreateBookButton {
-  border: 2px solid lightcyan;
+  border: 2px solid lightblue;
   border-radius: 3px;
   height: 36px;
   width: 100px;
   line-height: 36px;
   text-align: center;
   cursor: pointer;
-  margin: auto;
+  margin: 20px auto;
 }
 
 .CreateBookButton:hover {
-  background-color: lightcyan;
+  background-color: lightblue;
 }

@@ -1,6 +1,47 @@
 .Book {
+  display: flex;
+  flex-direction: column;
   height: 300px;
-  width: 200px;
-  border: 1px solid lightblue;
+  width: 250px;
+  border: 5px solid lightblue;
   margin: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0 3px 4px rgba(0,0,0,0.5);
 }
+
+.Button {
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid linen;
+  border-radius: 5px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
+  text-align: center;
+}
+.Button:hover {
+  color: white;
+}
+
+.Buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.ReadStatus {
+  
+}
+.ReadStatus.read {
+  background-color: yellowgreen;
+}
+.ReadStatus.unread {
+  background-color: lightcoral;
+}
+
+.DeleteButton {
+  background: lightsteelblue;
+}
+

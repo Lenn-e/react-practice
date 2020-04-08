@@ -21,6 +21,8 @@ const CreateBookModal = (props) => {
           <input type="text" name="title" />
           <label>Author</label>
           <input type="text" name="author" />
+          <label>Pages</label>
+          <input type="text" name="pages" />
           <button>Submit</button>
         </form>
       </div>

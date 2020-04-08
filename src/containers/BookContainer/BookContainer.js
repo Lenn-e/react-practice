@@ -7,9 +7,9 @@ import CreateBookModal from '../../components/Books/CreateBookModal/CreateBookMo
 class BookContainer extends Component {
   state = {
     books: {
-      1: {title: "Dune", author: "Frank Herbert"},
-      2: {title: "Supreme Book", author: "Supreme"},
-      3: {title: "Test Book", author: "Tester"}
+      1: {title: "Dune", author: "Frank Herbert", pages: "634", isRead: false},
+      2: {title: "Supreme Book", author: "Supreme", pages: "432", isRead: false},
+      3: {title: "Test Book", author: "Tester", pages: "564", isRead: false}
     },
     createBookModalOpen: false,
   }
@@ -18,7 +18,9 @@ class BookContainer extends Component {
     e.preventDefault();
     const newBook = {
       title: e.target.title.value,
-      author: e.target.author.value
+      author: e.target.author.value,
+      pages: e.target.pages.value,
+      isRead: false
     };
     const ID = new Date() + e.target.author.value + e.target.title.value;
     this.setState(prevState => {
@@ -40,13 +42,36 @@ class BookContainer extends Component {
     this.setState({ createBookModalOpen: false });
   }
 
+  toggleBookReadStatusHandler = (bookID) => {
+    this.setState((prevState) => {
+      const booksClone = JSON.parse(JSON.stringify(this.state.books));
+      booksClone[bookID].isRead = !booksClone[bookID].isRead;
+
+      return {
+        books: booksClone,
+      }
+    });
+  }
+
+  deleteBookHandler = (bookID) => {
+    const booksClone = JSON.parse(JSON.stringify(this.state.books));
+    delete booksClone[bookID];
+
+    this.setState({
+      books: booksClone
+    });
+  }
+
   render() {
     return (
       <div className={classes.BookContainer}>
         <div 
           className={classes.CreateBookButton}
           onClick={this.openCreateBookModal}>Add Book</div>
-        <BookList books={this.state.books} />
+        <BookList 
+          books={this.state.books}
+          toggleRead={this.toggleBookReadStatusHandler}
+          deleteBook={this.deleteBookHandler} />
         <CreateBookModal 
           createBook={this.createBookHandler}
           isOpen={this.state.createBookModalOpen}
